@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>{{ title }} - Microblog</title>
+    </head>
+    <body>
+        <h1>Hello, {{ user.username }}{{questions}}</h1>
+	{% for question in questions }
+        <div><p>{{ question }} says: <b></b></p></div>
+        {% endfor %}
+    </body>
+</html>

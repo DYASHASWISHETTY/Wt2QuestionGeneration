@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="text/javascript">
+<script>
+		
+			count=0;
+			/*The user agent fires a popstate event when the user navigates through their history, whether backwards or forwards, provided it isn’t taking the user away from the current page. */
+			window.onpopstate=restore;
+			
+			function restore(e){
+				
+				var rest=e.state;
+				document.getElementById("fileToUpload").value=rest.fname;
+			}
+			function push()
+			{
+			var hist=new Object();
+			hist["fname"]=document.getElementById("fileToUpload").value;
+			history.pushState(hist,"XHR History","http://127.0.0.1:5000/home.html?count="+count++);
+			}			
+						
+					
+		</script>
+</script>
+<body>
+	<form action = "/index" method = "post" name="form1">
+    Select a file to upload:
+	
+    <input type="file" name="fileToUpload" id="fileToUpload"></input>
+    <br><br>
+    <input type="submit" value="Upload File" name="submit" onclick="push()" id="button"></input>
+	</form>
+	
+	<form action = "/index" method = "post" name="form2">
+    Enter the text:
+    <input type="text" name="fileToUpload" id="fileToUpload"></input>
+    <br><br>
+    <input type="submit" value="Upload File" name="submit" onclick="push()" id="button"></input>
+	</form>
+	
+</body>
+
+
+ 
+</html>
+
+
